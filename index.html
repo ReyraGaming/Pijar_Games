@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pijar Games</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!---===============================MODAL LOGIN==============================================-->
+    <section class="modal-login-container" id="modal-login">
+      <form class="modal-login-section">
+        <p>Login</p>
+        <div class="modal-login-list-input">
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="********" />
+          <button>Login</button>
+        </div>
+        <p class="account">Belum punya akun ? <span>Daftar</span></p>
+      </form>
+    </section>
+    <!---===============================NAVBAR===================================================-->
+    <nav class="navbar-container">
+      <div class="navbar-section">
+        <h1 class="navbar-logo">Pijar Games</h1>
+        <i
+          class="fa-solid fa-bars"
+          id="toggle-button"
+          style="color: rgb(1, 31, 116); padding-top: 16px"
+        ></i>
+        <div class="sub-navbar-content">
+          <i
+            class="fa-solid fa-xmark"
+            id="close-button"
+            style="color: rgb(1, 31, 116)"
+          ></i>
+          <div class="navbar-search">
+            <input type="text" placeholder="Search Games" />
+            <img src="./asset/search.png" alt="search-icon" />
+          </div>
+          <div class="navbar-menu">
+            <a href="#">Home</a>
+            <a href="#">Discover</a>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+          </div>
+          <div class="navbar-button">
+            <button id="login-btn">Login</button>
+            <button>Signup</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!---===============================Hero===================================================-->
+    <section class="content-container">
+      <div class="content-section">
+        <div class="content-main-images-section">
+          <img
+            src="{{image}}"
+            alt="{{title}}"
+            class="content-main-image"
+            id="content-main-image"
+          />
+          <div class="content-main-image-description">
+            <h2>{{title}}<h2>
+            <p>{{stat}}</p>
+            <p>{{desc}}</p>
+          </div>
+        </div>
+        <div class="list-games">
+          {{#games}}
+          <img
+            src="{{image}}"
+            alt="{{title}}"
+            class="content-sub-image"
+            onclick="img({{id}})"
+          />
+          {{/games}}
+        </div>
+      </div>
+    </section>
+    <!--====================================List Games============================================-->
+    <section class="list-games-container">
+      <div class="list-games-section">
+        <div class="pagination">
+          <h1>Games on Sale</h1>
+          <div class="button">
+            <button class="prev">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="swiper myListGames">
+          <div class="swiper-wrapper list-card-games">
+            {{#cardGames}}
+            <div class="swiper-slide card-game">
+              <img
+                src="{{image}}"
+                alt="{{title}}"
+              />
+              <p class="card-genre">{{genre}}</p>
+              <p class="card-title">{{title}}</p>
+              <div class="list-games-desc">
+                <p class="discount">{{discount}}</p>
+                <div class="list-price">
+                  <p>{{firstPrice}}</p>
+                  <p>{{lastPrice}}</p>
+                </div>
+              </div>
+            </div>
+            {{/cardGames}}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================List Trailer=========================================-->
+    <section class="trailer-container">
+      <div class="trailer-section">
+        <h1 class="title-trailer">Coming Soon</h1>
+        <div class="list-trailer">
+          <div class="trailer-card">
+            <iframe
+              src="https://www.youtube.com/embed/5pL3joRyeGY?si=6iofdCbZAHjgKTqZ"
+              title="Black Myth: Wukong"
+            ></iframe>
+            <p>Black Myth: Wukong Trailer</p>
+          </div>
+          <div class="trailer-card">
+            <iframe
+              src="https://www.youtube.com/embed/yNnhBP_FiXM?si=qiu-HU8U540Pzvnd"
+              title="Suikoden I & II Remaster"
+            ></iframe>
+            <p>
+              Suikoden I & II Remaster Gate Rune and Dunan Unification Wars
+              Trailer
+            </p>
+          </div>
+          <div class="trailer-card">
+            <iframe
+              src="https://www.youtube.com/embed/dlQ3FeNu5Yw?si=96ZxAXjm-09k0OQr"
+              title="Alan Wake II"
+            ></iframe>
+            <p>Alan Wake II Trailer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================Free Games==========================================-->
+    <section class="free-games-container">
+      <div class="free-games-section">
+        <div class="pagination">
+          <h1>Free Games</h1>
+          <div class="button">
+            <button class="button-prev">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="button-next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="swiper listFreeGames">
+          <div class="swiper-wrapper list-free-games">
+            {{#freeGames}}
+            <div class="swiper-slide free-games-card">
+              <img
+                src="{{image}}"
+                alt="{{title}}"
+              />
+              <p class="free-games-genre">{{genre}}</p>
+              <p class="free-games-title">{{title}}</p>
+              <p class="free-games-price">{{Price}}</p>
+            </div>
+            {{/freeGames}}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=====================================Footer==============================================-->
+    <section class="footer-games-container">
+      <div class="list-games-section footer-games-section">
+        <p>Pijar Games</p>
+        <p>Copyright 2023</p>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
